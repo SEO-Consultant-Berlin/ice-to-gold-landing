@@ -1,5 +1,2 @@
 [build]
-public_url = "/ice-to-gold/"
-
-[tools]
-wasm_bindgen = "0.2.99"
+public_url = "/ice-to-gold-landing/"
