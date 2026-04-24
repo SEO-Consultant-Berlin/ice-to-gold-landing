@@ -20,7 +20,7 @@ impl Component for Hero {
                     <h1 class="hero-title">{"ЛЁД, КОТОРЫЙ "}<span class="gradient-text">{"ДЕЛАЕТ ЗОЛОТО"}</span></h1>
                     <p class="hero-subtitle">{"Как превратить бесплатный жмых в "}<strong>{"90 000+ ₽/мес"}</strong>{" на домашней кухне"}</p>
                     <p class="hero-description">{"Переработал 300+ кг сырья, нашёл сухой лёд по 80 ₽/кг в Москве и упаковал всё в гайд"}</p>
-                    <div class="hero-actions"><a href="#offer" class="btn-primary">{"🚀 ХОЧУ ДЕЛАТЬ ЗОЛОТО ИЗ ЛЬДА"}</a></div>
+                    <div class="hero-actions"><a href="#offer" class="btn-primary">{"🚀 ХОЧУ ДЕЛАТЬ ЗОЛОТО ИЗО ЛЬДА"}</a></div>
                     <p class="hero-price">{"Гайд + Excel-калькулятор + 30 мин созвона. "}<span class="price-highlight">{"Цена 1 490 ₽"}</span></p>
                     <div class="hero-stats">
                         <div class="stat"><span class="stat-number">{"300+"}</span><span class="stat-label">{"кг переработано"}</span></div>
