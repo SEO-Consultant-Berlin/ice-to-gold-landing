@@ -1,10 +1,29 @@
 use yew::prelude::*;
+use web_sys::window;
 
 pub struct Hero;
+
 impl Component for Hero {
-    type Message = (); type Properties = ();
-    fn create(_ctx: &Context<Self>) -> Self { Self }
+    type Message = ();
+    type Properties = ();
+
+    fn create(_ctx: &Context<Self>) -> Self {
+        Self
+    }
+
     fn view(&self, _ctx: &Context<Self>) -> Html {
+        let scroll_to_order = Callback::from(|_| {
+            if let Some(window) = window() {
+                if let Some(document) = window.document() {
+                    if let Some(element) = document.get_element_by_id("order") {
+                        element.scroll_into_view_with_scroll_into_view_options(
+                            web_sys::ScrollIntoViewOptions::new().behavior(web_sys::ScrollBehavior::Smooth),
+                        );
+                    }
+                }
+            }
+        });
+
         html! {
             <section class="hero">
                 <div class="hero-video-wrapper">
@@ -20,7 +39,9 @@ impl Component for Hero {
                     <h1 class="hero-title">{"ЛЁД, КОТОРЫЙ "}<span class="gradient-text">{"ДЕЛАЕТ ЗОЛОТО"}</span></h1>
                     <p class="hero-subtitle">{"Как превратить бесплатный жмых в "}<strong>{"90 000+ ₽/мес"}</strong>{" на домашней кухне"}</p>
                     <p class="hero-description">{"Переработал 300+ кг сырья, нашёл сухой лёд по 80 ₽/кг в Москве и упаковал всё в гайд"}</p>
-                    <div class="hero-actions"><a href="#offer" class="btn-primary">{"🚀 ХОЧУ ДЕЛАТЬ ЗОЛОТО ИЗО ЛЬДА"}</a></div>
+                    <div class="hero-actions">
+                        <button class="btn-primary" onclick={scroll_to_order}>{"🚀 ХОЧУ ДЕЛАТЬ ЗОЛОТО ИЗО ЛЬДА"}</button>
+                    </div>
                     <p class="hero-price">{"Гайд + Excel-калькулятор + 30 мин созвона. "}<span class="price-highlight">{"Цена 1 490 ₽"}</span></p>
                     <div class="hero-stats">
                         <div class="stat"><span class="stat-number">{"300+"}</span><span class="stat-label">{"кг переработано"}</span></div>
