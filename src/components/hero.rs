@@ -12,13 +12,13 @@ impl Component for Hero {
     }
 
     fn view(&self, _ctx: &Context<Self>) -> Html {
+        // Функция скролла с ПРАВИЛЬНЫМ синтаксисом
         let scroll_to_order = Callback::from(|_| {
             if let Some(window) = window() {
                 if let Some(document) = window.document() {
                     if let Some(element) = document.get_element_by_id("order") {
-                        element.scroll_into_view_with_scroll_into_view_options(
-                            web_sys::ScrollIntoViewOptions::new().behavior(web_sys::ScrollBehavior::Smooth),
-                        );
+                        // Используем простой и надёжный вызов
+                        element.scroll_into_view_with_bool(true);
                     }
                 }
             }
@@ -40,7 +40,12 @@ impl Component for Hero {
                     <p class="hero-subtitle">{"Как превратить бесплатный жмых в "}<strong>{"90 000+ ₽/мес"}</strong>{" на домашней кухне"}</p>
                     <p class="hero-description">{"Переработал 300+ кг сырья, нашёл сухой лёд по 80 ₽/кг в Москве и упаковал всё в гайд"}</p>
                     <div class="hero-actions">
-                        <button class="btn-primary" onclick={scroll_to_order}>{"🚀 ХОЧУ ДЕЛАТЬ ЗОЛОТО ИЗО ЛЬДА"}</button>
+                        // Кнопка с текстом в две строки
+                        <button class="btn-primary" onclick={scroll_to_order}>
+                            {"🚀 ХОЧУ ДЕЛАТЬ ЗОЛОТО"}
+                            <br/>
+                            {"ИЗО ЛЬДА"}
+                        </button>
                     </div>
                     <p class="hero-price">{"Гайд + Excel-калькулятор + 30 мин созвона. "}<span class="price-highlight">{"Цена 1 490 ₽"}</span></p>
                     <div class="hero-stats">
