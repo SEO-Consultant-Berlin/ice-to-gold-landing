@@ -233,3 +233,164 @@ h1,h2,h3,h4{font-family:'Montserrat',sans-serif}
         transform: translateY(-6px);
     }
 }
+/* ========================================
+   NEW 3-CARD OFFER SECTION (RUST BACKEND)
+   ======================================== */
+.offer-section {
+  padding: 80px 0;
+}
+
+.offer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.offer-title {
+  text-align: center;
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 48px;
+}
+
+/* Сама сетка для трёх карточек */
+.offer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: stretch;
+}
+
+/* Индивидуальная карточка */
+.offer-card {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.offer-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+/* Выделенная карточка (ХИТ) */
+.offer-card--highlighted {
+  border-color: var(--neon-pink);
+  background: rgba(255, 0, 122, 0.05);
+  box-shadow: 0 0 30px rgba(255, 0, 122, 0.2);
+  transform: scale(1.03);
+  z-index: 2;
+}
+.offer-card--highlighted:hover {
+  transform: scale(1.03) translateY(-4px);
+}
+
+/* Бейдж "ХИТ" */
+.offer-card__badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, var(--neon-pink), var(--neon-orange));
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 6px 20px;
+  border-radius: 50px;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+.offer-card__title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.offer-card__price {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.offer-card__amount {
+  font-size: 2.4rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--neon-pink), var(--neon-orange));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Список фич */
+.offer-card__features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px 0;
+  flex-grow: 1;
+}
+
+.offer-card__feature {
+  color: #d1d5db;
+  font-size: 0.9rem;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  text-align: center;
+}
+
+/* Кнопки */
+.offer-card__btn {
+  background: transparent;
+  border: 1px solid var(--neon-pink);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 14px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  width: 100%;
+  margin-top: auto;
+}
+
+.offer-card__btn:hover {
+  background: var(--neon-pink);
+  color: #fff;
+  box-shadow: 0 0 20px rgba(255, 0, 122, 0.5);
+}
+
+/* Кнопка для выделенного тарифа */
+.offer-card__btn--accent {
+  background: linear-gradient(135deg, var(--neon-pink), var(--neon-orange));
+  border: none;
+  color: #fff;
+  box-shadow: 0 0 20px rgba(255, 0, 122, 0.3);
+}
+
+.offer-card__btn--accent:hover {
+  box-shadow: 0 0 30px rgba(255, 0, 122, 0.6);
+  background: linear-gradient(135deg, var(--neon-orange), var(--neon-pink));
+}
+
+/* Адаптив для мобильных */
+@media (max-width: 900px) {
+  .offer-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .offer-card--highlighted {
+    transform: none;
+  }
+  
+  .offer-card--highlighted:hover {
+    transform: translateY(-4px);
+  }
+}
