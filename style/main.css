@@ -129,3 +129,107 @@ h1,h2,h3,h4{font-family:'Montserrat',sans-serif}
   .stat-number{font-size:1.4rem}
   .footer-content{flex-direction:column;text-align:center}
 }
+/* PRICING GRID */
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+    margin-bottom: 64px;
+}
+
+.pricing-card {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 40px 28px;
+    text-align: center;
+    transition: transform 0.3s, border-color 0.3s;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.pricing-card:hover {
+    transform: translateY(-6px);
+}
+
+/* Выделенная карточка */
+.pricing-card.popular {
+    border-color: var(--neon-pink);
+    background: rgba(255, 0, 122, 0.05);
+    box-shadow: 0 0 30px rgba(255, 0, 122, 0.15);
+    transform: scale(1.03);
+}
+.pricing-card.popular:hover {
+    transform: scale(1.03) translateY(-6px);
+}
+
+.popular-badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, var(--neon-pink), var(--neon-orange));
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 6px 20px;
+    border-radius: 50px;
+    white-space: nowrap;
+}
+
+.pricing-header h3 {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+}
+.pricing-desc {
+    color: #9ca3af;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.pricing-price {
+    margin-bottom: 24px;
+}
+.pricing-price span {
+    font-size: 2.8rem;
+    font-weight: 900;
+}
+
+.pricing-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 32px;
+    text-align: left;
+    padding: 0 8px;
+}
+.pricing-features li {
+    color: #d1d5db;
+    font-size: 0.95rem;
+}
+.pricing-features li.disabled {
+    color: #4b5563;
+    text-decoration: line-through;
+    text-decoration-color: rgba(255,255,255,0.2);
+}
+
+/* Быстрый заказ + гарантия */
+.quick-order {
+    max-width: 600px;
+    margin: 0 auto;
+}
+.quick-order .offer-guarantee {
+    margin-bottom: 32px;
+}
+
+/* Адаптив для карточек */
+@media(max-width: 768px) {
+    .pricing-card.popular {
+        transform: none;
+    }
+    .pricing-card.popular:hover {
+        transform: translateY(-6px);
+    }
+}
