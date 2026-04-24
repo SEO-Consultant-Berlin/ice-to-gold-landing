@@ -21,7 +21,7 @@ pub fn offer(props: &OfferProps) -> Html {
     let OfferProps { plans, onbuy, onsubmit } = props.clone();
 
     html! {
-        <section class="offer-section">
+       <section class="offer-section" id="order">
             <div class="offer-container">
                 <h2 class="offer-title">{"Выберите свой тариф"}</h2>
                 <div class="offer-grid">
